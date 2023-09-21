@@ -26,7 +26,7 @@ const Index = () => {
         Connected to the{" "}
         <b>
           {networkId === 0
-            ? "Testnet"
+            ? "Preprod"
             : networkId === 1
             ? "Mainnet"
             : "Invalid network, use Testnet or Mainnet"}

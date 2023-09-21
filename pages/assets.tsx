@@ -32,7 +32,9 @@ const Index = () => {
             return (
               <li key={a.asset}>
                 <div>
+                  <>
                   {name}
+                  </>
 
                   {Number(a.quantity) > 1 &&
                     ` (${lovelaceToAda(

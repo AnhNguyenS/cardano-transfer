@@ -14,7 +14,9 @@ const useLucid = () => {
     if (isNil(networkId) || isNil(walletApi)) return
 
     const provider = new Blockfrost(`/api/blockfrost/${networkId}`)
-    const network = networkId === 0 ? "Testnet" : "Mainnet"
+    console.log(networkId,lucid);
+    
+    const network = networkId === 0 ? "Preview" : "Mainnet"
 
     const updatedLucid = await (isNil(lucid)
       ? Lucid.new(provider, network)
@@ -26,8 +28,9 @@ const useLucid = () => {
   }, [lucid, networkId, walletApi])
 
   useEffect(() => {
+    if (isNil(networkId)) return;
     initializeLucid()
-  }, [initializeLucid])
+  }, [initializeLucid, networkId])
 
   return {
     networkId,
